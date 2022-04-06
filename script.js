@@ -60,6 +60,12 @@ operators.forEach((operator) => {
         previousNumberInput = currentNumberInput;
         if (operator.textContent === '+') {
             calcOperation = add;
+        } else if (operator.textContent === '-') {
+            calcOperation = subtract;
+        } else if (operator.textContent === 'x') {
+            calcOperation = multiply;
+        } else if (operator.textContent === '/') {
+            calcOperation = divide;
         }
         clearDisplay();
     });
@@ -69,6 +75,8 @@ equals.addEventListener('click', () => {
     console.log(equals);
     let total = operate(calcOperation, Number(previousNumberInput), Number(currentNumberInput));
     currentDisplay = total;
+    currentNumberInput = currentDisplay;
     updateDisplay()
     console.log(`total: ${total}`)
+    calcOperation = '';
 });
