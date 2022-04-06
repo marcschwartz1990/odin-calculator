@@ -9,33 +9,33 @@
     <body>
         <h1>CALCULATOR</h1>
         <div class="calculator">
-            <div class="display">00000000</div>
+            <div class="display"></div>
             <div class="row" id="topRow">
-                <button class="button" id='clearButton'>CLEAR</button>
-                <button class="button">/</button>
+                <button data-clear id="clear">CLEAR</button>
+                <button data-operator="divide">/</button>
             </div>
             <div class="row">
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
-                <button class="button">x</button>
+                <button data-number>7</button>
+                <button data-number>8</button>
+                <button data-number>9</button>
+                <button data-operator="multiply">x</button>
             </div>
             <div class="row">
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
-                <button class="button">-</button>
+                <button data-number>4</button>
+                <button data-number>5</button>
+                <button data-number>6</button>
+                <button data-operator="minus">-</button>
             </div>
             <div class="row">
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
-                <button class="button">+</button>
+                <button data-number>1</button>
+                <button data-number>2</button>
+                <button data-number>3</button>
+                <button data-operator="plus">+</button>
             </div>
             <div class="row">
-                <button class="button" id="zeroButton">0</button>
-                <button class="button">.</button>
-                <button class="button" id="equalsButton">=</button>
+                <button data-number id="zero">0</button>
+                <button data-number>.</button>
+                <button data-equals id="equals">=</button>
             </div>
         </div>
 

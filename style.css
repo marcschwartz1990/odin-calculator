@@ -4,11 +4,12 @@
     color: #efeeee;
     font-size: 50px;
     text-align: right;
-    padding: 20px 0px 5px 0px;
+    padding: 10px 0px 15px 0px;
     border-radius: 12px 12px 0 0;
+    height: 40px;
 }
 
-.button {
+button {
     background-color: #6e6767;
     text-align: center;
     font-size: 30px;
@@ -23,15 +24,15 @@
     border-radius: 0 0 12px 12px;
 }
 
-#clearButton {
+#clear {
     width: 75%;
 }
 
-#zeroButton {
+#zero {
     width: 50%;
     border-radius: 0 0 0 12px;
 }
 
-#equalsButton {
+#equals {
     border-radius: 0 0 12px 0;
 }
