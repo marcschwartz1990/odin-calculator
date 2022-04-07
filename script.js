@@ -72,6 +72,7 @@ operators.forEach((operator) => {
             calcOperation = divide;
         }
         clearDisplay();
+        dots = '';
     });
 });
 
@@ -83,6 +84,7 @@ equals.addEventListener('click', () => {
     updateDisplay()
     console.log(`total: ${total}`)
     calcOperation = '';
+    dots = '';
 });
 
 dot.addEventListener('click', () => {
