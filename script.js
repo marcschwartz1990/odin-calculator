@@ -32,12 +32,14 @@ function clearDisplay() {
 const numbers = document.querySelectorAll('[data-number]');
 const operators = document.querySelectorAll('[data-operator]');
 const clear = document.querySelector('[data-clear]');
-const equals = document.querySelector('[data-equals]')
+const equals = document.querySelector('[data-equals]');
+const dot = document.querySelector('[data-dot]');
 
 let currentDisplay = '';
 let previousNumberInput = '';
 let currentNumberInput = '';
-let calcOperation = null
+let calcOperation = null;
+let dots = '';
 
 numbers.forEach((button) => {
     button.addEventListener('click', () => {
@@ -52,6 +54,8 @@ clear.addEventListener('click', () => {
     console.log(clear);
     clearDisplay()
     updateDisplay()
+    previousNumberInput = '';
+    currentNumberInput = '';
 });
 
 operators.forEach((operator) => {
@@ -79,4 +83,13 @@ equals.addEventListener('click', () => {
     updateDisplay()
     console.log(`total: ${total}`)
     calcOperation = '';
+});
+
+dot.addEventListener('click', () => {
+    if (dots.length === 0) {
+        currentDisplay += dot.textContent;
+        dots += dot.textContent;
+        updateDisplay()
+    }
+    console.log(dot);
 });
