@@ -15,6 +15,7 @@ button {
     font-size: 30px;
     width: 25%;
     padding: 10px 0;
+    color: #efe9eb
 }
 
 .row {
@@ -26,6 +27,7 @@ button {
 
 #clear {
     width: 75%;
+    background-color: #2c3032;
 }
 
 #zero {
@@ -35,4 +37,9 @@ button {
 
 #equals {
     border-radius: 0 0 12px 0;
+    background-color: #ff9f0a
+}
+
+[data-operator] {
+    background-color: #ff9f0a;
 }

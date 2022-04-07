@@ -29,6 +29,37 @@ function clearDisplay() {
     currentDisplay = '';
 };
 
+function resetDots() {
+    dots = '';
+};
+
+function setCurrentNumberInput(setTo) {
+    currentNumberInput = setTo;
+}
+
+function setPreviousNumberInput(setTo) {
+    previousNumberInput = setTo;
+}
+
+function resetPreviousNumberInput() {
+    previousNumberInput = '';
+}
+
+function resetCurrentNumberInput() {
+    currentNumberInput = '';
+}
+
+function resetCalcOperation() {
+    calcOperation = '';
+}
+
+function calculate() {
+    if (previousNumberInput !== '' && currentNumberInput !== '') {
+        result = operate(calcOperation, Number(previousNumberInput), Number(currentNumberInput));
+        return result;
+    };
+};
+
 const numbers = document.querySelectorAll('[data-number]');
 const operators = document.querySelectorAll('[data-operator]');
 const clear = document.querySelector('[data-clear]');
@@ -40,28 +71,25 @@ let previousNumberInput = '';
 let currentNumberInput = '';
 let calcOperation = null;
 let dots = '';
+let result = null;
 
 numbers.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(button);
         currentDisplay += button.textContent;
-        currentNumberInput = currentDisplay;
+        setCurrentNumberInput(currentDisplay);
         updateDisplay();
     });
 });
 
 clear.addEventListener('click', () => {
-    console.log(clear);
     clearDisplay()
     updateDisplay()
-    previousNumberInput = '';
-    currentNumberInput = '';
+    resetPreviousNumberInput()
+    resetCurrentNumberInput()
 });
 
 operators.forEach((operator) => {
-    operator.addEventListener('click', () => {
-        console.log(operator);
-        previousNumberInput = currentNumberInput;
+    operator.addEventListener('click', () => {     
         if (operator.textContent === '+') {
             calcOperation = add;
         } else if (operator.textContent === '-') {
@@ -71,20 +99,16 @@ operators.forEach((operator) => {
         } else if (operator.textContent === '/') {
             calcOperation = divide;
         }
+        setPreviousNumberInput(currentNumberInput);
         clearDisplay();
-        dots = '';
     });
 });
 
 equals.addEventListener('click', () => {
-    console.log(equals);
-    let total = operate(calcOperation, Number(previousNumberInput), Number(currentNumberInput));
-    currentDisplay = total;
-    currentNumberInput = currentDisplay;
-    updateDisplay()
-    console.log(`total: ${total}`)
-    calcOperation = '';
-    dots = '';
+    result = operate(calcOperation, Number(previousNumberInput), Number(currentNumberInput));
+    currentDisplay = result;
+    updateDisplay();
+    setPreviousNumberInput(result);
 });
 
 dot.addEventListener('click', () => {
